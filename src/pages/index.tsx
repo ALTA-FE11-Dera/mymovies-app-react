@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Card from "../components/Card";
 import Layout from "../components/Layout";
-import Loader from "../components/Loader";
+import { LoadingAnimation, SkeletonLoading } from "../components/Loader";
 
 interface DatasType {
   id: number;
@@ -39,6 +39,7 @@ export default class index extends Component<PropsType, StateType> {
       )
       .then((data) => {
         const { results } = data.data;
+        //console.log(data);
         this.setState({ datas: results });
       })
       .catch((error) => {
@@ -54,12 +55,12 @@ export default class index extends Component<PropsType, StateType> {
       <Layout>
         <div className="mx-12 pt-10 pb-5">
           <h2 className="font-bold text-2xl text-black text-center">
-            Palying Now!!!
+            NOW PLAYING
           </h2>
         </div>
         <div className="grid grid-cols-4 gap-3">
           {this.state.loading ? (
-            <Loader />
+            <LoadingAnimation />
           ) : (
             this.state.datas.map((data: DatasType) => (
               <Card
