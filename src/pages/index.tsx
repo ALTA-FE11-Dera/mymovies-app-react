@@ -35,7 +35,9 @@ export default class index extends Component<PropsType, StateType> {
   fetchData() {
     axios
       .get(
-        "https://api.themoviedb.org/3/movie/now_playing?api_key=f2158650cb46bd584925ef5b9c01de7e&language=en-US&page=1"
+        `now_playing?api_key=${
+          import.meta.env.VITE_API_KEY
+        }&language=en-US&page=1`
       )
       .then((data) => {
         const { results } = data.data;
@@ -63,14 +65,7 @@ export default class index extends Component<PropsType, StateType> {
             <LoadingAnimation />
           ) : (
             this.state.datas.map((data: DatasType) => (
-              <Card
-                key={data.id}
-                title={data.title}
-                image={data.poster_path}
-                review={""}
-                btn_fav="Add To Favorite"
-                btn_review="Review"
-              />
+              <Card key={data.id} title={data.title} image={data.poster_path} />
             ))
           )}
         </div>
