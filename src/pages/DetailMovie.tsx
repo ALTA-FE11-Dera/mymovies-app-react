@@ -19,14 +19,16 @@ interface DataType {
   genres?: GenreType[];
 }
 
-interface PropsType {}
+interface PropsType {
+  params?: any;
+}
 
 interface StateType {
   loading: boolean;
   data: DataType;
 }
 
-export default class DetailMovie extends Component<PropsType, StateType> {
+class DetailMovie extends Component<PropsType, StateType> {
   constructor(props: PropsType) {
     super(props);
     this.state = {
@@ -41,8 +43,9 @@ export default class DetailMovie extends Component<PropsType, StateType> {
   }
 
   fetchData() {
+    console.log(this.props);
     fetch(
-      `https://api.themoviedb.org/3/movie/76600?api_key=${
+      `https://api.themoviedb.org/3/movie/436270?api_key=${
         import.meta.env.VITE_API_KEY
       }&language=en-US`,
       { method: "GET" }
@@ -64,7 +67,7 @@ export default class DetailMovie extends Component<PropsType, StateType> {
           <LoadingAnimation />
         ) : (
           <div className="flex h-full w-full flex-wrap items-center justify-center bg-gradient-to-t from-cyan-400 p-6 dark:from-cyan-800">
-            <div className="flex w-full h-[50vh] bg-gray-200">
+            <div className="flex w-full h-[50vh] bg-gray-600">
               <img
                 src={`https://image.tmdb.org/t/p/w500${this.state.data.poster_path}`}
                 alt={this.state.data.title}
@@ -95,3 +98,5 @@ export default class DetailMovie extends Component<PropsType, StateType> {
     );
   }
 }
+
+export default DetailMovie;

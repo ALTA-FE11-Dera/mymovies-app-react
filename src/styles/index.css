@@ -5,3 +5,17 @@
 body {
   margin: 0;
 }
+
+.font-Display {
+  font-family: "Fugaz One", cursive;
+  font-size: xx-large;
+  letter-spacing: 0.2rem;
+  color: black;
+}
+.menu-item li {
+  font-weight: bold;
+}
+
+.menu-dropdown-item li {
+  color: white;
+}

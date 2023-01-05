@@ -1,33 +1,47 @@
 import React, { Component } from "react";
 
+import Button from "./Button";
+
+import { withRouter } from "../utils/navigation";
+
 interface CardProps {
   title: string;
   image: string;
-  review: string;
-  btn_fav: string;
-  btn_review: string;
+  id: number;
+  onClickFav?: () => void;
+  labelButton: string;
+  navigate?: any;
+  params?: any;
 }
 
-export class Card extends Component<CardProps> {
+class Card extends Component<CardProps> {
+  onClickDetail() {
+    this.props.navigate(`/movie/${this.props.id}`);
+  }
+
   render() {
     return (
-      <div className="card bg-base-100 shadow-xl">
-        <figure>
+      <div className="card bg-slate-800 shadow-xl">
+        <figure onClick={() => this.onClickDetail()}>
           <img
             src={`https://image.tmdb.org/t/p/w500${this.props.image}`}
             alt={this.props.title}
           />
         </figure>
-        <div className="card-body items-center text-center">
-          <h2 className="card-title">{this.props.title}</h2>
-          <p>{this.props.review}</p>
-          <div className="card-actions">
-            <button className="btn btn-primary border-none bg-blue-600 hover:bg-blue-400">
-              {this.props.btn_fav}
-            </button>
-            <button className="btn btn-primary border-none bg-green-600 hover:bg-green-400">
-              {this.props.btn_review}
-            </button>
+        <div className="card-body items-center justify-between">
+          <h2
+            className="card-title text-center"
+            onClick={() => this.onClickDetail()}
+          >
+            {this.props.title}
+          </h2>
+          <div className="card-actions w-full justify-center">
+            <Button
+              className="btn btn-primary border-none bg-primary
+              hover:bg-orange-500"
+              onClick={this.props.onClickFav}
+              label={this.props.labelButton}
+            />
           </div>
         </div>
       </div>
@@ -35,4 +49,4 @@ export class Card extends Component<CardProps> {
   }
 }
 
-export default Card;
+export default withRouter(Card);

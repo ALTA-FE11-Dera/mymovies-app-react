@@ -8,6 +8,6 @@ module.exports = {
 
   // daisyUI config (optional)
   daisyui: {
-    themes: false,
+    themes: ["halloween"],
   },
 };

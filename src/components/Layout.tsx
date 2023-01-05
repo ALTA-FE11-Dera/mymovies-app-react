@@ -9,7 +9,7 @@ interface LayoutProps {
 export default class Layout extends Component<LayoutProps> {
   render() {
     return (
-      <div className="w-full h-screen bg-slate-300 flex flex-col overflow-auto">
+      <div className="w-full h-screen flex flex-col overflow-auto">
         <Navbar />
         <div className="h-full">
           {this.props.children}

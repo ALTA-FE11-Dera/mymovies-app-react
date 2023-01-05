@@ -1,63 +1,64 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 export default class Navbar extends Component {
   render() {
     return (
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-primary text-primary-content sticky">
         <div className="navbar-start">
-          <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost btn-circle">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h7"
-                />
-              </svg>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-            >
+          <Link
+            to="/"
+            className="btn btn-ghost normal-case text-xl font-Display"
+          >
+            CINEMAXI
+          </Link>
+        </div>
+        <div className="navbar-center">
+          <a className="form-control">
+            <input
+              type="text"
+              placeholder="Seacrh"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </a>
+        </div>
+        <div className="navbar-end">
+          <div className="flex-none">
+            <ul className="menu menu-horizontal px-1 menu-item">
               <li>
-                <a>Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a>Favorite</a>
-              </li>
-              <li>
-                <a>Coming Soon</a>
+                <Link to="/favorite">Favorite</Link>
               </li>
             </ul>
           </div>
-        </div>
-        <div className="navbar-center">
-          <a className="btn btn-ghost normal-case text-xl">CINEMAXI</a>
-        </div>
-        <div className="navbar-end">
-          <button className="btn btn-ghost btn-circle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src="https://placeimg.com/80/80/people" />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 menu-dropdown-item"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </button>
+              <li>
+                <a className="justify-between">Profile</a>
+              </li>
+              <li className="form-control">
+                <label className="label cursor-pointer">
+                  <span className="label-text">Dark Mode</span>
+                  <input type="checkbox" className="toggle" checked />
+                </label>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a>Logout</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     );
