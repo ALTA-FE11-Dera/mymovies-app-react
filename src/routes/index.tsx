@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Homepage from "../pages";
 import DetailMovie from "../pages/DetailMovie";
-import Favorite from "../pages/ListFavMovie";
+import ListFavMovie from "../pages/ListFavMovie";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/favorite",
-    element: <Favorite />,
+    element: <ListFavMovie />,
   },
 ]);
 
