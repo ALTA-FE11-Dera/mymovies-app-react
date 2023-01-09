@@ -39,11 +39,11 @@ const DetailMovie = () => {
       {loading ? (
         <LoadingAnimation />
       ) : (
-        <div className="hero min-h-screen bg-base-200 mx-auto items-center">
+        <div className="hero min-h-screen mx-auto items-center">
           <div className="w-full bg-cover bg-center bg-no-repeat">
             <img
               src={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`}
-              className="opacity-40 w-screen"
+              className="bg-opacity-40 w-screen"
             />
           </div>
           <div className="hero-content flex-col lg:flex-row justify">
@@ -52,8 +52,8 @@ const DetailMovie = () => {
                 src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
                 className="w-1/4 h-1/4 shadow-2xl mx-10 my-10 "
               />
-              <div className="'mx-14 my-14'">
-                <h1 className="text-5xl font-bold">{data.title}</h1>
+              <div className="mx-14 my-14 text-white">
+                <h1 className="text-5xl font-bold ">{data.title}</h1>
                 <p className="pt-2 text-lg font-semibold">
                   Ratings:{" "}
                   <span className="text-lg font-normal">
@@ -87,8 +87,8 @@ const DetailMovie = () => {
                   <span className="text-lg font-normal">{data.overview}</span>
                 </p>
                 <button
-                  className="btn btn-primary border-none w-80 bg-primary
-              hover:bg-orange-500"
+                  className="btn btn-primary border-none w-80 bg-orange-500
+              hover:bg-orange-400"
                 >
                   Wacth Now!
                 </button>

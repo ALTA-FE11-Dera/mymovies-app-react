@@ -20,7 +20,7 @@ const Card: FC<CardProps> = ({ id, image, title, labelButton, onClickFav }) => {
   }
 
   return (
-    <div className="card bg-slate-800 shadow-xl">
+    <div className="card bg-white dark:bg-slate-900  dark:text-white shadow-xl">
       <figure onClick={() => onClickDetail()}>
         <img src={`https://image.tmdb.org/t/p/w500${image}`} alt={title} />
       </figure>
@@ -30,8 +30,8 @@ const Card: FC<CardProps> = ({ id, image, title, labelButton, onClickFav }) => {
         </h2>
         <div className="card-actions w-full justify-center">
           <Button
-            className="btn btn-primary border-none bg-primary
-              hover:bg-orange-500"
+            className="btn btn-primary border-none  bg-orange-500
+              hover:bg-orange-400"
             onClick={onClickFav}
             label={labelButton}
           />

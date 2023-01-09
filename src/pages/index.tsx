@@ -92,7 +92,9 @@ const Index = () => {
         />
       )}
       <div className="mx-12 pt-10 pb-5">
-        <h2 className="font-extrabold text-2xl text-center">NOW PLAYING</h2>
+        <h2 className="font-extrabold text-2xl text-center text-gray-900 dark:text-white ">
+          NOW PLAYING
+        </h2>
       </div>
       <div className="grid grid-cols-4 gap-3">
         {loading
